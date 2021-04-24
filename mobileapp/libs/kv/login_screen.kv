@@ -1,0 +1,54 @@
+#: import environ os.environ
+#: import gch kivy.utils.get_color_from_hex
+
+
+<CinebotLoginScreen>
+    canvas:
+        Color:
+            rgba: gch("33333d")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    MDBoxLayout:
+        adaptive_height: True
+        orientation: "vertical"
+        spacing: dp(80)
+        padding: dp(30)
+        pos_hint: {"center_x": .5}
+
+        Image:
+            source: f"{environ['CINEBOT']}/assets/images/logo.png"
+            pos_hint: {"center_x": .5}
+            size_hint: None, None
+            width:500
+            allow_stretch: True
+
+
+        MDBoxLayout:
+            adaptive_height: True
+            orientation: "vertical"
+            spacing: dp(20)
+
+            CinebotMDTextField:
+                hint_text: "Username"
+
+            CinebotMDTextField:
+                hint_text: "Password"
+                password: True
+                icon_right:"eye-off"
+        MDBoxLayout:
+            adaptive_height: True
+            orientation: "vertical"
+            spacing: dp(20)
+
+            MDFillRoundFlatButton:
+                size_hint_x: 1
+                text:"Login"
+                text_size:self.size
+                valign:'center'
+                on_release: root.parent.current = "cinebot root screen"
+
+<CinebotMDTextField@MDTextField>
+    mode: 'fill'
+    line_anim: False
+    fill_color: (0, 0, 0, .3)

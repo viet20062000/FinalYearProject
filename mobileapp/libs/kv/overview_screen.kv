@@ -1,0 +1,39 @@
+#:import os os
+
+
+<CinebotSwiperItem>
+    BoxLayout:
+        padding: [0, 60, 0, 0]
+        orientation: 'vertical'
+        RelativeLayout:
+            FitImage:
+                id: image
+                radius: [20,]
+                source:root.source
+            MDBoxLayout:
+                adaptive_height: True
+                md_bg_color: 1, 1, 1, 1
+                radius: [0, 0, image.radius[0], image.radius[0]]
+                MDLabel:
+                    text:root.name
+                    font_style: "H5"
+                    size_hint_y: None
+                    halign: "center"
+                    height: self.texture_size[1]
+                    pos_hint: {"center_y": .5,"center_x":.5}
+                    opposite_colors: True
+                    shorten: True
+        MDLabel:
+            text:""
+            size_hint:None,None
+            height:20            
+        MDFillRoundFlatButton:
+            text:"Detail"
+            pos_hint:{"center_x":.5}
+            on_release:root.test()
+
+<CinebotOverviewScreen>
+    name:"HOME"
+
+    MDSwiper:
+        id: Swiper

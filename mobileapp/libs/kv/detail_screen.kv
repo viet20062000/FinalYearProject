@@ -1,0 +1,100 @@
+#:import os os
+<CinebotDetailScreen>:
+	BoxLayout:
+		orientation: 'vertical'
+		AsyncImage:
+			id:image
+			pos_hint: {'center_x': .5}
+			size_hint: None,None
+			allow_stretch: True
+			height:300
+			width:root.width
+		ScrollView:
+			size_hint: (1, .1)
+			
+			GridLayout:
+				cols:1
+				id:container
+				size_hint_y: None
+				height: self.minimum_height
+				GridLayout:
+					size_hint_y: None
+					height:self.minimum_height
+					cols:2
+					row_force_default: True
+	            	row_default_height: dp(40)
+					padding: [20, 20, 20, 0]
+					MDLabel:
+						font_style:"H6"
+						text:"Tên"
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"Body2"
+						text:"Không có"
+						id:film_title
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"H6"
+						text:"Ngày ra mắt"
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"Body2"
+						text:"Không có"
+						id:date
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"H6"
+						text:"Thể loại"
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"Body2"
+						text:"Không có"
+						id:genre
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"H6"
+						text:"Đạo diễn"
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"Body2"
+						text:"Không có"
+						id:director
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"H6"
+						text:"Diễn viên"
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"Body2"
+						text:"Không có"
+						id:cast
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"H6"
+						text:"Đánh giá"
+						valign: "center"
+						halign: "left"
+					MDLabel:
+						font_style:"Body2"
+						text:"Không có"
+						id:rating
+						valign: "center"
+						halign: "left"
+
+				MDLabel:
+					size_hint_y: None
+					height:100
+					padding: [20, 0]
+					font_style:"Body2"
+					id:overview
+					valign: "top"

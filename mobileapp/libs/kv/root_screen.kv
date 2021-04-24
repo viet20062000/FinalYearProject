@@ -1,0 +1,165 @@
+#: import environ os.environ
+#: import gch kivy.utils.get_color_from_hex
+
+#: import StiffScrollEffect kivymd.stiffscroll.StiffScrollEffect
+
+#: import NavigationItem libs.baseclass.navbar.NavigationItem
+#: import NavigationBar libs.baseclass.navbar.NavigationBar
+#: import CinebotOverviewScreen libs.baseclass.overview_screen.CinebotOverviewScreen
+#: import CinebotBookingTicketScreen libs.baseclass.bookingticket_screen.CinebotBookingTicketScreen
+#: import CinebotAssistantScreen libs.baseclass.assistant_screen.CinebotAssistantScreen
+#: import CinebotSettingScreen libs.baseclass.setting_screen.CinebotSettingScreen
+#: import CinebotDetailScreen libs.baseclass.detail_screen.CinebotDetailScreen
+
+
+<CinebotRootScreen>
+    md_bg_color: gch("#33333d")
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        NavigationBar:
+            id: nav_bar
+
+            NavigationItem:
+                text: "HOME"
+                icon: "home"
+                on_release:
+                    scr_manager.transition.direction = "right"
+                    scr_manager.current = "HOME"
+
+            NavigationItem:
+                text: "BOOKING"
+                icon: "ticket"
+                on_release:
+                    scr_manager.transition.direction = "right" \
+                    if scr_manager.current in ["CINEBOT","SETTING"] \
+                    else "left"
+                    scr_manager.current = "BOOKING"
+
+            NavigationItem:
+                text: "CINEBOT"
+                icon: "head-cog-outline"
+                on_release:
+                    scr_manager.transition.direction = "left"\
+                    if scr_manager.current in ["BOOKING","HOME"]\
+                    else "right" 
+                    scr_manager.current = "ASSISTANT"
+            NavigationItem:
+                text: "SETTING"
+                icon: "cog"
+                on_release:
+                    scr_manager.transition.direction = "left" 
+                    scr_manager.current = "SETTING"
+            
+            
+        CinebotManager:
+            id: scr_manager
+
+            CinebotOverviewScreen:
+                name: "HOME"
+
+            CinebotBookingTicketScreen:
+                name: "BOOKING"
+
+
+            CinebotAssistantScreen:
+                name: "ASSISTANT"
+
+            CinebotSettingScreen:
+                name:"SETTING"
+            CinebotDetailScreen:
+                name:"DETAIL"
+<CinebotOverviewScreen>
+    name:"HOME"
+    MDSwiper:
+        id: Swiper
+        pos_hint: {'center_x': .5,'center_y':.6}
+        size_hint_y: None
+        height: root.height  
+
+
+# <ScrollView>
+#     bar_width: 0
+#     effect_cls: StiffScrollEffect
+
+
+# <CinebotLabel@MDLabel>
+#     adaptive_height: True
+
+
+# <CinebotListItem>
+#     size_hint_y: None
+#     height: dp(60)
+
+#     canvas:
+#         Color:
+#             rgba:
+#                 self.theme_cls.divider_color
+#         Line:
+#             points: (root.x+dp(16), root.y, root.x+self.width-dp(16)-0, root.y)
+#     canvas.before:
+#         Color:
+#             rgba: gch("#31313b")
+#         Rectangle:
+#             size: self.size
+#             pos: self.pos
+
+#     MDBoxLayout:
+#         adaptive_size: True
+#         padding: dp(15)
+#         pos_hint: {"center_x": .5, "center_y": .5}
+
+#         MDIcon:
+#             icon: "minus-thick"
+#             halign: "center"
+#             pos_hint: {"center_y": .5}
+#             theme_text_color: "Custom"
+#             text_color: root.bar_color
+
+#             canvas.before:
+#                 PushMatrix
+#                 Rotate:
+#                     angle: 90
+#                     origin: self.center
+#             canvas.after:
+#                 PopMatrix
+
+#     MDBoxLayout:
+#         orientation: 'vertical'
+#         adaptive_height: True
+#         pos_hint: {"center_x": .5, "center_y": .5}
+#         spacing: dp(2)
+
+#         CinebotLabel:
+#             text: root.text
+#             font_style: "Subtitle1"
+
+#         CinebotLabel:
+#             text: root.secondary_text
+#             theme_text_color: "Hint"
+#             font_style: "Button"
+
+#     MDBoxLayout:
+#         orientation: 'vertical'
+#         padding: (0, 0, 0, dp(10))
+#         adaptive_height: True
+
+#         CinebotLabel:
+#             text: root.tertiary_text
+#             theme_text_color: "Secondary"
+#             pos_hint: {"center_x": .5, "center_y": .5}
+#             halign: "right"
+#             font_style: "H3"
+#             font_size: sp(20)
+
+#     MDBoxLayout:
+#         adaptive_size: True
+#         padding: dp(15)
+#         pos_hint: {"center_x": .5, "center_y": .5}
+
+#         MDIcon:
+#             icon: "chevron-right"
+#             halign: "center"
+#             pos_hint: {"center_y": .5}
+#             theme_text_color: "Hint"
