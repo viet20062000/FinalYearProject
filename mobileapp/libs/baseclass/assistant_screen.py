@@ -13,11 +13,9 @@ from datetime import date
 import os
 from chatterbot.comparisons import LevenshteinDistance
 import chatterbot.filters
-import playsound
 import time
 import pyttsx3
 import calendar 
-import wikipedia
 import random
 from threading import Thread
 import sqlite3
@@ -183,6 +181,8 @@ class CinebotAssistantScreen(MDScreen):
 					film_result.add_widget(CinebotFitImage(source=trending_imgs[item],
 						film_id=str(trending_ids[item]),size_hint=(None,None),width=200,radius=[15,15,15,15],on_release=lambda wdt:self.detail(wdt.film_id)))
 					film_result.add_widget(MDLabel(text="",size_hint_x=None,width=40))
+			elif "price" in text:
+				film_result.add_widget(AsyncImage(source='https://halotravel.vn/wp-content/uploads/2020/03/rap-bhd.jpg',size_hint=[None,None],width=self.size[0]))
 			speech_card= MDCard(
 				orientation= "vertical",
 				size_hint=[None,None],
