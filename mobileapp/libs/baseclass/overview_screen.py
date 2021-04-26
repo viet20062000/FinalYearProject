@@ -14,7 +14,7 @@ class CinebotSwiperItem(ButtonBehavior,MDSwiperItem):
 	source = StringProperty()
 	name=StringProperty()
 	film_id=StringProperty()
-	def test(self):
+	def detail(self):
 		self.parent.parent.parent.parent.parent.film_object.film_id=self.parent.parent.parent.get_current_item().film_id
 		self.parent.parent.parent.parent.parent.current="DETAIL"
 
@@ -26,7 +26,7 @@ class CinebotOverviewScreen(MDScreen):
 			images=[]
 			names=[]
 			film_id=[]
-			conn=sqlite3.connect(r"C:\sqlite\db\cinema.db")
+			conn=sqlite3.connect(r"\libs\cinema.db")
 			print("success!")
 			sql="""SELECT image,title,film_id from Film"""
 			cursor=conn.cursor()
