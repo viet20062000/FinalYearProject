@@ -8,7 +8,7 @@ from kivymd.uix.list import TwoLineAvatarListItem
 class CinebotBookingTicketScreen(MDScreen):
 	def on_enter(self):
 		today=date.today()
-		conn=sqlite3.connect(r"\libs\cinema.db")
+		conn=sqlite3.connect(r"libs\cinema.db")
 		cursor=conn.cursor()
 		sql=f"SELECT film_id, image, title, overview from film where release_date < '{today}'order by release_date desc limit 5"
 		cursor.execute(sql)

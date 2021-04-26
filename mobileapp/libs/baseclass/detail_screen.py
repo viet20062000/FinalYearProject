@@ -7,7 +7,7 @@ class CinebotDetailScreen(MDScreen):
 		casts=[]
 		print(self.parent.film_object.film_id)
 		ids=int(self.parent.film_object.film_id)
-		conn=sqlite3.connect(r"\libs\cinema.db")
+		conn=sqlite3.connect(r"libs\cinema.db")
 		print("success!")
 		sql=f"SELECT * from Film where film_id={ids}"
 		cursor=conn.cursor()

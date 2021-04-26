@@ -136,7 +136,7 @@ class CinebotAssistantScreen(MDScreen):
 	def film_query(self,sql):
 		film_imgs=[]
 		film_ids=[]
-		conn=sqlite3.connect(r"\libs\cinema.db")
+		conn=sqlite3.connect(r"libs\cinema.db")
 		cursor=conn.cursor()
 		cursor.execute(sql)
 		records=cursor.fetchall()
