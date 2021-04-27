@@ -33,7 +33,7 @@ conversations:
   - Here's the map of our cinema. Please check it!
   - Thanks for your help.
   - It's my pleasure.
-- - Excuse me, where can i find the way to cinema room
+- - Excuse me, how can I find the way to cinema room
   - Here's the map of our cinema, please check it to find your desire area.
   - Thanks for your help.
   - It's my pleasure.
@@ -45,6 +45,8 @@ conversations:
   - Here's the list of our services price in our cinema.
 - - Can i know the price here
   - I'm totally free, but here's the list of our services price.
+  - where should i choose to watch a movie
+  - In my research, it's a wise choice to pick a slot in F, G and H line, if you don't have short-sightedness, you can pick some last line for the best audio.
 - - What's the most ideal spot to choose in a cinema room
   - In my research, it's a wise choice to pick a slot in F, G and H line, if you don't have short-sightedness, you can pick some last line for the best audio.
 - - I'm a newbie in cinema, can you help me in choosing good slot in a cinema room
@@ -60,8 +62,16 @@ conversations:
 - - What is the most recently released film
   - The most recently released film is
 - - How much does your cinema's service cost 
-  - I'm totally free, but here's the list of our services price.
+  - I'm totally free, but here's the list of our ticket price.
 - - Show me the lastest released movie
   - The most recently released film is
 - - Show me the lastest released film
   - The most recently released film is
+- - How much does it cost to buy a ticket
+  - The list of ticket's price is served.
+- - The lastest movie
+  - The most recently released film is
+- - Show me the ticket price
+  - The list of ticket's price is served.
+- - price
+  - Our price is served below.
