@@ -15,9 +15,6 @@ go to (user)\appdata\local\programs\python\python37\Lib\site-packages\chatterbot
 
 
 
-
-
-
 cinema.yml is the dataset file for training the chatbot, there's the following step needed to train your bot
 - clone the chatterbot-corpus repo from github https://github.com/gunthercox/chatterbot-corpus
 - add this dataset file into data file of chatterbot corpus/ english
@@ -25,3 +22,5 @@ cinema.yml is the dataset file for training the chatbot, there's the following s
 
 *cinebotDB.db is the result of training, it store every data that your chatbot has trained.
 
+
+to execute the application, go to mobileapp and run command py main.py
