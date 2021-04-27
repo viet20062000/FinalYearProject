@@ -6,7 +6,6 @@ from chatterbot.comparisons import LevenshteinDistance
 import chatterbot.filters
 import playsound
 import time
-from demopyttsx3 import *
 import datetime
 import calendar 
 import wikipedia
@@ -31,8 +30,9 @@ cinebot = ChatBot('Cinebot',
 # Create a new trainer for the chatbot
 trainer = ChatterBotCorpusTrainer(cinebot)
 
-trainer.train("chatterbot.corpus.english.greetings")
+# trainer.train("chatterbot.corpus.english.greetings")
 trainer.train("chatterbot.corpus.english.cinema")
+# trainer.train("chatterbot.corpus.english.conversations")
 
 
 # def getCommand():
