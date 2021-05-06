@@ -6,6 +6,7 @@ from kivy.properties import StringProperty
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.uix.image import AsyncImage
 from kivymd.utils.fitimage import FitImage 
+from kivy.uix.popup import Popup
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 import speech_recognition as sr 
@@ -19,6 +20,8 @@ import calendar
 import random
 from threading import Thread
 import sqlite3
+class CinebotAsyncImage(ButtonBehavior,AsyncImage):
+	pass
 class CinebotFitImage(ButtonBehavior,FitImage):
 	film_id=StringProperty()
 class CinebotAssistantScreen(MDScreen):
@@ -94,11 +97,15 @@ class CinebotAssistantScreen(MDScreen):
 		text="Hope I helped you. See you again!"
 		return text
 
+	def open_popup(self,img_source):
+		img=CinebotAsyncImage(source=img_source,size_hint=(None,None),width=self.size[0],height=370,allow_stretch=True)
+		popupWindow=Popup(title="",content=img,size_hint=(None,None),size=(self.size[0],self.size[1]-40))
+		popupWindow.open()
 	def assistant(self):
 		start_speech="What can I help you?"
 		self.add_response(start_speech)
 		while True:
-			text=self.getCommand()
+			text=input()
 			# text=input()
 			if text==0 or "bye" in text:
 				time.sleep(1)
@@ -149,7 +156,7 @@ class CinebotAssistantScreen(MDScreen):
 		text_speech=MDLabel(text=text,halign="left",size_hint_x=None,width=self.size[0]-50)
 		space=MDLabel(size_hint=(None,None),height=50)
 		film_result=MDBoxLayout(orientation="horizontal",spacing=(20,0), adaptive_width=True)
-		keywords=["trending film","high rating film","you to pick","coming soon film","map of our cinema","services price","recently released film"]
+		keywords=["trending film","high rating film","you to pick","coming soon film","map of our cinema","price","recently released film","research"]
 		if any(keyword in text for keyword in keywords):
 			if "high rating film" in text:
 				sql_rating=f"SELECT film_id,image from film order by rating desc limit 3"
@@ -182,7 +189,9 @@ class CinebotAssistantScreen(MDScreen):
 						film_id=str(trending_ids[item]),size_hint=(None,None),width=200,radius=[15,15,15,15],on_release=lambda wdt:self.detail(wdt.film_id)))
 					film_result.add_widget(MDLabel(text="",size_hint_x=None,width=40))
 			elif "price" in text:
-				film_result.add_widget(AsyncImage(source='https://halotravel.vn/wp-content/uploads/2020/03/rap-bhd.jpg',size_hint=[None,None],width=self.size[0]))
+				film_result.add_widget(CinebotAsyncImage(source='https://halotravel.vn/wp-content/uploads/2020/03/rap-bhd.jpg',size_hint=(None,None),width=self.size[0]-60,on_release=lambda wdt:self.open_popup(wdt.source)))
+			elif "research" in text:
+				film_result.add_widget(CinebotFitImage(source=r"assets\images\cinema-map.png",size_hint=(None,None),width=self.size[0]-60,on_release=lambda wdt:self.open_popup(wdt.source)))
 			speech_card= MDCard(
 				orientation= "vertical",
 				size_hint=[None,None],
