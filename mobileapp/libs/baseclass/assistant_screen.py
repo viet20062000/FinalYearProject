@@ -43,7 +43,7 @@ class CinebotAssistantScreen(MDScreen):
 	    	],
 	    	statement_comparison_function=LevenshteinDistance,
 	    	database_uri='sqlite:///cinebotDB.db',
-	    	read_only=True,
+	    	# read_only=True,
 	    	filters=[chatterbot.filters.get_recent_repeated_responses]
 
 	)
@@ -105,8 +105,8 @@ class CinebotAssistantScreen(MDScreen):
 		start_speech="What can I help you?"
 		self.add_response(start_speech)
 		while True:
+			# text=self.getCommand()
 			text=input()
-			# text=input()
 			if text==0 or "bye" in text:
 				time.sleep(1)
 				self.add_response(self.say_bye())
@@ -143,7 +143,7 @@ class CinebotAssistantScreen(MDScreen):
 	def film_query(self,sql):
 		film_imgs=[]
 		film_ids=[]
-		conn=sqlite3.connect(r"libs\cinema.db")
+		conn=sqlite3.connect(r"libs\cinema.db", check_same_thread=False)
 		cursor=conn.cursor()
 		cursor.execute(sql)
 		records=cursor.fetchall()
@@ -191,7 +191,9 @@ class CinebotAssistantScreen(MDScreen):
 			elif "price" in text:
 				film_result.add_widget(CinebotAsyncImage(source='https://halotravel.vn/wp-content/uploads/2020/03/rap-bhd.jpg',size_hint=(None,None),width=self.size[0]-60,on_release=lambda wdt:self.open_popup(wdt.source)))
 			elif "research" in text:
-				film_result.add_widget(CinebotFitImage(source=r"assets\images\cinema-map.png",size_hint=(None,None),width=self.size[0]-60,on_release=lambda wdt:self.open_popup(wdt.source)))
+				film_result.add_widget(CinebotFitImage(source=r"assets\images\cinema-room.png",size_hint=(None,None),width=self.size[0]-60,on_release=lambda wdt:self.open_popup(wdt.source)))
+			elif "map of our cinema" in text:
+				film_result.add_widget(CinebotAsyncImage(source=r"assets\images\cinema-map.png", size_hint=(None,None),width=self.size[0]-60,on_release=lambda wdt:self.open_popup(wdt.source)))
 			speech_card= MDCard(
 				orientation= "vertical",
 				size_hint=[None,None],

@@ -12,6 +12,10 @@ conversations:
   - Yeah of course, the list of trending film today is ready!
 - - List of trending film
   - Yeah of course, the list of trending film today is ready!
+- - List of trending movie
+  - Yeah of course, the list of trending film today is ready!
+- - Hot movie
+  - Yeah of course, the list of trending film today is ready!
 - - High rating
   - Here the high rating film come!
 - - Can you show me the trending film today
@@ -47,6 +51,8 @@ conversations:
   - Sorry, I'm still in implementing progress.
 - - Can you show me the price for ticket
   - Here's the list of our services price in our cinema.
+- - WC
+  - Here's the map of our cinema. Please check it!
 - - Can i know the price here
   - I'm totally free, but here's the list of our services price.
   - where should i choose to watch a movie
@@ -60,6 +66,8 @@ conversations:
 - - why your function is so lack
   - Sorry, I'm still in implementing progress.
 - - Is there any good film today
+  - Yeah, it's always be here for you to pick.
+- - Is there any good movie today
   - Yeah, it's always be here for you to pick.
 - - What should I watch today
   - Here the list of high rating film come!
@@ -83,3 +91,17 @@ conversations:
   - List of trending film today below
 - - what should I watch today
   - Trending film today is served
+- - Which movie will be released soon
+  - Here's the list of coming soon film.
+- - Sorry, where can i find the toilet
+  - Here's the map of our cinema. Please check it!
+- - Where is the toilet
+  - Here's the map of our cinema. Please check it!
+- - Show me the map
+  - Here's the map of our cinema. Please check it!
+- - toilet
+  - Here's the map of our cinema. Please check it!
+- - What can you do
+  - I can help you in movie recommendation, direction and some useful instruction.
+- - Show me what you got
+  - I can help you in movie recommendation, direction and some useful instruction. 

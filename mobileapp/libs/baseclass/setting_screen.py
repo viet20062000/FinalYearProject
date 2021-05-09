@@ -26,4 +26,7 @@ class CinebotSettingScreen(MDScreen):
         if text=="Sign Out":
             self.parent.parent.parent.parent.current = "cinebot login screen"
             self.parent.parent.parent.ids.nav_bar.set_current(-1)
+        if text=="Change background":
+            print("hello")
+            self.parent.parent.parent.parent.parent.parent.md_bg_color="gch('#ffffff')"
         

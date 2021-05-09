@@ -26,7 +26,7 @@ class CinebotOverviewScreen(MDScreen):
 			images=[]
 			names=[]
 			film_id=[]
-			conn=sqlite3.connect(r"libs\cinema.db")
+			conn=sqlite3.connect(r"libs\cinema.db", check_same_thread=False)
 			print("success!")
 			sql="""SELECT image,title,film_id from Film"""
 			cursor=conn.cursor()

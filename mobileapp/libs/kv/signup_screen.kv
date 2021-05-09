@@ -1,0 +1,73 @@
+#: import environ os.environ
+#: import gch kivy.utils.get_color_from_hex
+
+
+<CinebotSignUpScreen>
+    canvas:
+        Color:
+            rgba: gch("33333d")
+            # rgba: gch("#c0d1eb")
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    MDBoxLayout:
+        adaptive_height: True
+        orientation: "vertical"
+        spacing: dp(30)
+        padding: dp(30)
+        pos_hint: {"center_x": .5}
+
+        MDBoxLayout:
+            adaptive_height: True
+            orientation: "vertical"
+            spacing: dp(20)
+            MDLabel:
+                text:"Username"
+            CinebotMDTextField:
+                hint_text: ""
+                id:username
+                required: True
+                helper_text_mode: "on_error"
+                helper_text: "Invalid Username"
+            MDLabel:
+                text:"Password"
+            CinebotMDTextField:
+                hint_text: ""
+                password: True
+                id:password
+            MDLabel:
+                text:" Re-type Password"
+            CinebotMDTextField:
+                hint_text: ""
+                password: True
+                id:retypepassword
+                required: True
+                helper_text_mode: "on_error"
+                helper_text: "Incorrect re-type password"
+
+            MDLabel:
+                text:"Email"
+            CinebotMDTextField:
+                hint_text: ""
+                id:email
+                required: True
+                helper_text_mode: "on_error"
+                helper_text: "Invalid Email"
+            MDLabel:
+                text:"Date of Birth"
+
+            CinebotMDTextField:
+                hint_text: ""
+                id:dob
+                required: True
+                helper_text_mode: "on_error"
+                helper_text: "Invalid DOB"
+                on_double_tap:root.show_date_picker()
+
+
+        MDFillRoundFlatButton:
+            text:"Sign Up"
+            text_size:self.size
+            valign:'center'
+            on_release: root.sign_up()
+

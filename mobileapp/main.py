@@ -22,6 +22,7 @@ KV = """
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition
 #:import CinebotLoginScreen libs.baseclass.login_screen.CinebotLoginScreen
 #:import CinebotRootScreen libs.baseclass.root_screen.CinebotRootScreen
+#:import CinebotLoginScreen libs.baseclass.signup_screen.CinebotSignUpScreen
 
 ScreenManager:
     transition: FadeTransition()
@@ -31,6 +32,9 @@ ScreenManager:
 
     CinebotRootScreen:
         name: "cinebot root screen"
+
+    CinebotSignUpScreen:
+        name:"cinebot signup screen"
 
 """
 
@@ -87,4 +91,5 @@ class MDCinebot(MDApp):
         self.scr_mngr.current = screen
 
 if __name__ == '__main__':
+    #Window.size=(370,600)
     MDCinebot().run()

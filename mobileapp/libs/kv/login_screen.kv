@@ -32,10 +32,12 @@
 
             CinebotMDTextField:
                 hint_text: "Username"
+                id:username
 
             CinebotMDTextField:
                 hint_text: "Password"
                 password: True
+                id:password
                 icon_right:"eye-off"
         MDBoxLayout:
             adaptive_height: True
@@ -47,9 +49,15 @@
                 text:"Login"
                 text_size:self.size
                 valign:'center'
-                on_release: root.parent.current = "cinebot root screen"
+                on_release: root.check_login()
+            MDRoundFlatButton:
+                size_hint_x: 1
+                text:"Sign Up"
+                text_size:self.size
+                valign:'center'
+                on_release: root.goto_signup()
 
 <CinebotMDTextField@MDTextField>
     mode: 'fill'
     line_anim: False
-    fill_color: (0, 0, 0, .3)
+    fill_color: (0, 0, 0, .1)
