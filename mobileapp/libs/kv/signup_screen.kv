@@ -64,10 +64,18 @@
                 helper_text: "Invalid DOB"
                 on_double_tap:root.show_date_picker()
 
-
-        MDFillRoundFlatButton:
-            text:"Sign Up"
-            text_size:self.size
-            valign:'center'
-            on_release: root.sign_up()
+        MDBoxLayout:
+            adaptive_height: True
+            orientation: 'horizontal'
+            spacing: dp(30)
+            MDFillRoundFlatButton:
+                text:"Sign Up"
+                text_size:self.size
+                valign:'center'
+                on_release: root.sign_up()
+            MDRoundFlatButton:
+                text:"Back"
+                text_size:self.size
+                valign:'center'
+                on_release: root.parent.current="cinebot login screen"
 
