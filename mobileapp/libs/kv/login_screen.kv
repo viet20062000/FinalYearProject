@@ -28,17 +28,27 @@
         MDBoxLayout:
             adaptive_height: True
             orientation: "vertical"
-            spacing: dp(20)
+            spacing: dp(100)
 
             CinebotMDTextField:
                 hint_text: "Username"
                 id:username
+            MDRelativeLayout:
+                height: password.height
+                pos_hint: {"center_x": .5, "center_y": .5}
+                CinebotMDTextField:
+                    hint_text: "Password"
+                    password: True
+                    padding:dp(15)
+                    id:password
+                MDIconButton:   
+                    icon: "eye-off"
+                    ripple_scale: .5
+                    pos: password.width - self.width , 0
+                    on_release:
+                        self.icon = "eye" if self.icon == "eye-off" else "eye-off"
+                        password.password = False if password.password is True else True
 
-            CinebotMDTextField:
-                hint_text: "Password"
-                password: True
-                id:password
-                icon_right:"eye-off"
         MDBoxLayout:
             adaptive_height: True
             orientation: "vertical"
