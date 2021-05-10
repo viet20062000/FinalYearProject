@@ -3,7 +3,7 @@ from kivy.properties import BooleanProperty
 from kivymd.uix.list import OneLineListItem
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.dialog import MDDialog
-from kivymd.uix.button import MDFlatButton
+from kivymd.uix.button import MDFlatButton,MDRaisedButton
 class CinebotSettingScreen(MDScreen):
     dialog=None
     created = BooleanProperty(False)
@@ -12,11 +12,11 @@ class CinebotSettingScreen(MDScreen):
             title='LOG OUT',
             text="Are you sure?",
             buttons=[
-                MDFlatButton(
+                MDRaisedButton(
                     text="CANCEL", font_style="H6",on_release=self.dialog_close
                 ),
                 MDFlatButton(
-                    text="LOG OUT", font_style="H6",on_release=self.logout
+                    text="YES", font_style="H6",on_release=self.logout
                 ),
             ],
         )
